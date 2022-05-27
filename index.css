@@ -5,6 +5,11 @@ body{
     margin: 0px;
 }
 
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
 html{
     font-size: 16px;
 }
@@ -14,9 +19,10 @@ html{
     max-height: 100%;
     width: 16.75rem;
     height: 16.75rem;
-    border: solid 1px #777;
-    background-image: #ddd;
+    /* border: solid 1px #777;
+    background-image: #ddd; */
     display: inline-block;
+    border: none;
 }
 
 #home::after{
@@ -27,12 +33,13 @@ html{
     width: 100vw;
     text-align: center;
     margin-top: 4rem;
-    margin-bottom: 3rem;    
+    margin-bottom: 2rem;    
+    height: 16.75rem;
 }
 
 .adivinado{
     text-align: center;
-    color: #002462;
+    color: #14a13e;
     font-size: 1.8rem;    
 }
 
@@ -45,7 +52,7 @@ html{
 .adivinada{    
     width: 4.5rem;
     height: 4.5rem;      
-    border-bottom: solid 1px #002462;
+    border-bottom: solid 1px #14a13e;
     margin-left: 0.4rem;   
     line-height: 4.5rem;
 }
@@ -60,3 +67,23 @@ html{
     margin-left: 1rem;
 }
 
+[type="button"]{
+    width: 15rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid 1px #2d4932;
+    cursor: pointer;
+    color: #04270f;
+    background: inherit;
+}
+
+.botones{
+    text-align: center;
+    margin-top: 3rem;
+}
+  
+.boton:hover,.boton:focus {
+    background-color: #259c35;
+    color: #fff;
+    border: solid 1px #000;
+  }

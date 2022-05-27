@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Challenge 2 Ahorcado | Oracle Alura</title>
+        <title>Challenge 2 Juego Ahorcado | Oracle Alura</title>
         <link rel="stylesheet" href="./index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <header>
+            <img src="./img/logo.png" class="logo"/>
+        </header>
         <div class="hombre-ahorcado">
-            <img id="hombre" alt="hombre-ahorcado" src="./img/estados/01.png" />
+            <img id="hombre" alt="hombre-ahorcado" />
         </div>        
-        <div class="adivinado">
-        <!-- <span class="letra adivinada">A</span>
-        <span class="letra adivinada">L</span>
-        <span class="letra adivinada"></span>
-        <span class="letra adivinada"></span>
-        <span class="letra adivinada">A</span> -->
-        </div>
-        <div class="errado">
-        <!-- <span class="letra errada">B</span>
-        <span class="letra errada">J</span>
-        <span class="letra errada">K</span>
-        <span class="letra errada">C</span> -->
-        </div>
+        <div class="adivinado"></div>
+        <div class="errado"></div>
         <form class="botones" action="javascript:void(0)">
-            <input type="button" class="boton" value="Nuevo Juego"/>
-            <input type="button" class="boton" value="Desistir"/>
+            <input type="button" class="boton" value="Nuevo Juego" onclick="nuevoJuego()"/>
+            <input type="button" class="boton" value="Desistir" onclick="rendirse()"/>
         </form>
         <script src="./ahorcado.js"></script>
     </body>
+    <footer>
+        <p>Author: MJ     Tema: Riddler DC Comics<br>
+    </footer>
 </html>

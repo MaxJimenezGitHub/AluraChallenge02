@@ -1,6 +1,6 @@
 ;(function(){
 'use strict'
-//var palabras = new Set('ALURA','ORACLE','JAVASCRIPT','CANVAS','TECNOLOGIA','AFINIDAD','PROGRAMAR','DESARROLLADOR');
+
 var palabras = ['ALURA','ORACLE','JAVASCRIPT','CANVAS','TECNOLOGIA','AFINIDAD','PROGRAMAR','DESARROLLADOR'];
 const EGanado = 8;
 const EPerdido = 1;
@@ -11,7 +11,7 @@ const formato = /[^A-ZÑ]/g; // /[*A-ZÑ]/
     palabra: 'ALURA',
     estado: 7,
     adivinado: ['A','L'],
-    errado: ['B','J','K','C']    
+    errado: ['Z','O','E','C']    
 } */
 
 var juego = null;
@@ -137,28 +137,31 @@ window.nuevoJuego = function nuevoJuego(){
     juego.estado = 7;
     juego.adivinado = [];
     juego.errado = [];
-    console.log(juego);
+    //console.log(juego);
     dibujar(juego);
 }
 
 window.onkeypress = function adivinarLetra(e){    
-    var letra = e.key;    
-    letra = letra.toUpperCase();
-    //if(!/[*A-ZÑ]/.test(letra)){ 
-    if(formato.test(letra)){       
-        return;
+    //tiene que existir un juego iniciado
+    if(juego != null){
+        var letra = e.key;    
+        letra = letra.toUpperCase();
+         
+        if(formato.test(letra)){       
+            return;
+        }
+        adivinar(juego, letra);
+        var miEstado = juego.estado;
+        if (miEstado == EGanado && !finalizado){                
+            setTimeout(mensajes(0,juego.palabra), 4000); 
+            finalizado = true;       
+        }    
+        else if(miEstado == EPerdido && !finalizado){
+            setTimeout(mensajes(1,juego.palabra), 4000);
+            finalizado = true;      
+        }
+        dibujar(juego);
     }
-    adivinar(juego, letra);
-    var miEstado = juego.estado;
-    if (miEstado == EGanado && !finalizado){                
-        setTimeout(mensajes(0,juego.palabra), 4000); 
-        finalizado = true;       
-    }    
-    else if(miEstado == EPerdido && !finalizado){
-        setTimeout(mensajes(1,juego.palabra), 4000);
-        finalizado = true;      
-    }
-    dibujar(juego);
 }
 
 function regresarInicio(){
@@ -199,6 +202,7 @@ window.iniciarJuego = function crearJuego(){
     tablero.classList.add('mostrar');
     configJuego.classList.remove('mostrar');    
     console.log("nuevo juego");
+    nuevoJuego();
 }
 
 window.cancPalabra = function cancelarPalabra(){
@@ -206,6 +210,20 @@ window.cancPalabra = function cancelarPalabra(){
     console.log("cancelar nueva palabra");
 }
 
-nuevoJuego();
+window.nuevaPalabra = function iniciarPalabra(data){
+    console.log("nuevo tablero de juego");
+    tablero.classList.add('mostrar');
+    configJuego.classList.remove('mostrar');
+    agregarPalabra.classList.remove('mostrar');
+    if (data.length > 0){
+        palabras.push(data);
+        console.log("se agrega nueva palabra"); 
+    }    
+    //iniciar
+    nuevoJuego();
+}
+
+//DEPENDE DEL EVENTO DE INICIO
+//nuevoJuego();
 
 }())

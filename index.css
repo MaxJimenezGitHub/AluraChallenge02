@@ -5,19 +5,10 @@ html{
     font-family:'Courier New', Courier, monospace;
 }
 
-*{
+/* *{
     margin: 0px;
     padding: 0px;
-}
-
-header{
-    margin-top: 1.5rem;
-    padding-left: 2rem;
-    max-width: 100%;
-    font-size: 9rem; 
-    color: #14a13e;
-    font-weight: bolder;
-}
+} */
 
 body{
     background: url(img/fondo.jpg) no-repeat;
@@ -29,6 +20,71 @@ body{
     background-color: #f7f3f1f6;
     margin: 0px;
 }
+
+header{
+    margin-top: 1.5rem;
+    padding-left: 2rem;
+    max-width: 100%;
+    font-size: 9rem; 
+    color: #14a13e;
+    font-weight: bolder;
+}
+
+.tableroJuego{
+    display: none;
+    visibility: hidden;
+}
+
+.tableroJuego.mostrar{
+    display: block; 
+    visibility: visible;
+}
+
+.configJuego{
+    display: none;
+    visibility: hidden;
+}
+
+.configJuego.mostrar{
+    display: block;
+    visibility: visible;
+}
+
+.agregarPalabra{
+    display: none;
+    visibility: hidden;
+}
+
+.agregarPalabra.mostrar{
+    display: block;
+    visibility: visible;
+}
+
+/* .agregarPalabra .textarea {
+    text-align: center;
+    color: #259c35;
+} */
+
+#txtTexto{    
+    text-align: center;
+    color: #259c35;
+    /* border: none; */
+    max-width: 100%;
+    font-weight: bolder;
+
+    width: 17rem;
+    padding: 1rem;
+    border: solid 2px #259c35;
+    background: inherit;
+    font-size: 20px;
+    font-family:inherit;    
+}
+
+/* display: inline-block; */
+    /* font-size: 1.5rem;
+    max-width: 100%;
+    word-break: break-all;
+    overflow-y: auto; */
 
 #hombre{
     max-width: 100%;
@@ -110,7 +166,7 @@ body{
 }
 
 [type="button"]{
-    width: 15rem;
+    width: 17rem;
     padding: 1rem;
     border-radius: 1rem;
     border: solid 1px #2d4932;
@@ -123,7 +179,7 @@ body{
 
 .botones{
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 3.5rem;
 }
   
 /* .boton:hover,.boton:focus { */

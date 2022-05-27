@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8"/>
         <title>Challenge 2 Juego Ahorcado | Oracle Alura</title>
         <link rel="stylesheet" href="./index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header>            
-            <label class="logo">a</label>
+            <label class="logo" title="Alura Challenge 02 - Juego del Ahorcado tema Riddler DC">a</label>
         </header>
-        <div id="msjFin" class="fin-juego">Fin del Juego<span class="riddle">?</span></div>
-        <div class="hombre-ahorcado">
-            <img id="hombre" alt="hombre-ahorcado" />
-        </div>        
-        <div class="adivinado"></div>
-        <div class="errado"></div>
-        <form class="botones" action="javascript:void(0)">
-            <input type="button" class="boton" value="Nuevo Juego" onclick="nuevoJuego()"/>
-            <input type="button" class="boton" value="Desistir" onclick="rendirse()"/>
-        </form>
+        <div class="tableroJuego">
+            <div id="msjFin" class="fin-juego">Fin del Juego<span class="riddle">?</span></div>
+            <div class="hombre-ahorcado">
+                <img id="hombre" alt="hombre-ahorcado" />
+            </div>        
+            <div class="adivinado"></div>
+            <div class="errado"></div>
+            <form class="botones" action="javascript:void(0)">
+                <input type="button" class="boton" value="Nuevo Juego" onclick="nuevoJuego()"/>
+                <input type="button" class="boton" value="Desistir" onclick="rendirse()"/>
+            </form>
+        </div>
+        <div class="configJuego">            
+            <form class="botones" action="javascript:void(0)">
+                <input type="button" class="boton" value="Iniciar Juego" onclick="iniciarJuego()"/>
+                <br/>
+                <br/>
+                <input type="button" class="boton" value="Agregar nueva palabra" onclick="agregar()"/>
+            </form>
+        </div>
+        <div class="agregarPalabra">            
+            <form class="botones" action="javascript:void(0)">   
+                <input type="text" id="txtTexto" title="Palabra Secreta" placeholder="Ingrese una Palabra" maxlength="8">             
+                <br/>
+                <span>Máximo 8 letras</span>                
+                <br/>
+                <br/>
+                <br/>                
+                <br/>
+                <input type="button" class="boton" value="Guardar y Empezar Juego" onclick="nuevaPalabra()"/>
+                <input type="button" class="boton" value="Cancelar" onclick="cancPalabra()"/>
+            </form>
+        </div>
         <script src="./ahorcado.js"></script>
+        <script type="text/javascript">
+            //load cargar el inicio del juego
+            //var inicial = document.getElementById('configJuego');
+            var inicial = document.querySelector(".configJuego");
+            //console.log(inicial);
+            inicial.classList.add('mostrar');
+
+        </script>
     </body>
     <footer>
         <p>Author: MJ<br>

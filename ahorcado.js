@@ -16,6 +16,7 @@ const formato = /[^A-ZÑ]/g; // /[*A-ZÑ]/
 
 var juego = null;
 var finalizado = false;
+var msjFinJG = document.getElementById('msjFin');
 
 var $html = {
     hombre: document.getElementById('hombre'),
@@ -121,10 +122,12 @@ function mensajes(tipo, palabra){
     else{
         alert('Felicidades has acertado');
     }
+    msjFinJG.classList.add('mostrar');
 }
 
 window.nuevoJuego = function nuevoJuego(){
     finalizado = false;
+    msjFinJG.classList.remove('mostrar')
     var aleatoria = palabraAleatoria();    
     juego = {};
     juego.palabra = aleatoria;
@@ -155,11 +158,13 @@ window.onkeypress = function adivinarLetra(e){
     dibujar(juego);
 }
 
-window.rendirse =function abandonarJuego(){
-    juego.estado = EPerdido;    
-    finalizado = true;
-    dibujar(juego);
-    setTimeout(mensajes(1,juego.palabra), 4000);
+window.rendirse = function abandonarJuego(){
+    if(juego.estado != EGanado && juego.estado != EPerdido){
+        juego.estado = EPerdido;    
+        finalizado = true;
+        dibujar(juego);
+        setTimeout(mensajes(1,juego.palabra), 4000);
+    }
 }
 
 /* function agregarPalabra(valor){

@@ -17,6 +17,9 @@ const formato = /[^A-ZÑ]/g; // /[*A-ZÑ]/
 var juego = null;
 var finalizado = false;
 var msjFinJG = document.getElementById('msjFin');
+var tablero = document.querySelector(".tableroJuego"); //document.getElementById('tableroJuego');
+var configJuego = document.querySelector(".configJuego"); //document.getElementById('configJuego');
+var agregarPalabra = document.querySelector(".agregarPalabra");
 
 var $html = {
     hombre: document.getElementById('hombre'),
@@ -127,7 +130,7 @@ function mensajes(tipo, palabra){
 
 window.nuevoJuego = function nuevoJuego(){
     finalizado = false;
-    msjFinJG.classList.remove('mostrar')
+    msjFinJG.classList.remove('mostrar');
     var aleatoria = palabraAleatoria();    
     juego = {};
     juego.palabra = aleatoria;
@@ -158,25 +161,50 @@ window.onkeypress = function adivinarLetra(e){
     dibujar(juego);
 }
 
+function regresarInicio(){
+    tablero.classList.remove('mostrar'); 
+    agregarPalabra.classList.remove('mostrar');
+    configJuego.classList.add('mostrar');
+}
+
 window.rendirse = function abandonarJuego(){
-    if(juego.estado != EGanado && juego.estado != EPerdido){
+    /* if(juego.estado != EGanado && juego.estado != EPerdido){
         juego.estado = EPerdido;    
         finalizado = true;
         dibujar(juego);
         setTimeout(mensajes(1,juego.palabra), 4000);
-    }
+    } */
+    /* tablero.classList.remove('mostrar'); 
+    configJuego.classList.add('mostrar'); */       
+    regresarInicio();
+    console.log("salir del juego");
 }
 
-/* function agregarPalabra(valor){
-    if(valor != ""){
+window.agregar = function incluirPalabra(){
+    tablero.classList.remove('mostrar'); 
+    configJuego.classList.remove('mostrar');
+    agregarPalabra.classList.add('mostrar');
+    console.log("agregar palabra");
+    /* if(valor != ""){
         if(formato.test(valor)){
             if(!palabras.has(valor)){
                 palabras.add(valor);
                 return;
             }
         }
-    }
-} */
+    } */
+}
+
+window.iniciarJuego = function crearJuego(){
+    tablero.classList.add('mostrar');
+    configJuego.classList.remove('mostrar');    
+    console.log("nuevo juego");
+}
+
+window.cancPalabra = function cancelarPalabra(){
+    regresarInicio();    
+    console.log("cancelar nueva palabra");
+}
 
 nuevoJuego();
 

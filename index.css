@@ -1,7 +1,8 @@
 
 html{
     font-size: 16px;
-    font-family:  'Inter', sans-serif;
+    /* font-family:  'Inter', sans-serif; */
+    font-family:'Courier New', Courier, monospace;
 }
 
 *{
@@ -11,7 +12,11 @@ html{
 
 header{
     margin-top: 1.5rem;
-    padding-left: 1rem;
+    padding-left: 2rem;
+    max-width: 100%;
+    font-size: 9rem; 
+    color: #14a13e;
+    font-weight: bolder;
 }
 
 body{
@@ -38,6 +43,32 @@ body{
 
 #home::after{
     content: "hombre ahorcado";
+}
+
+.fin-juego{
+    text-align: center;
+    color: #259c35;
+    font-size: 3rem; 
+    font-weight: bold;
+    visibility: hidden;
+}
+
+.fin-juego.mostrar{
+    visibility: visible;
+}
+
+.riddle{
+    text-align: center;
+    color: #259c35;
+    font-size: 3rem; 
+    font-weight: bold;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
 }
 
 .hombre-ahorcado{
@@ -87,6 +118,7 @@ body{
     color: #04270f;
     background: inherit;
     font-size: 17px;
+    font-family:inherit;
 }
 
 .botones{
@@ -94,7 +126,8 @@ body{
     margin-top: 3rem;
 }
   
-.boton:hover,.boton:focus {
+/* .boton:hover,.boton:focus { */
+.boton:hover{
     background-color: #259c35;
     color: #fff;
     border: solid 1px #000;
@@ -103,5 +136,6 @@ body{
 footer{  
     position: absolute;
     bottom: 0;
-    padding: 1rem; 
+    padding: 1rem;
+    color: #259c35;
 }

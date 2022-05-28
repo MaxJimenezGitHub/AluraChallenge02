@@ -12,6 +12,10 @@
             <label class="logo" title="Alura Challenge 02 - Juego del Ahorcado tema Riddler DC">a</label>
         </header>
         <div class="tableroJuego">
+            <div id="alerta" class="fin-juego alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <label id="lblMensaje"></label>
+            </div>
             <div id="msjFin" class="fin-juego">Fin del Juego<span class="riddle">?</span></div>
             <div class="hombre-ahorcado">
                 <img id="hombre" alt="hombre-ahorcado" />
@@ -35,7 +39,7 @@
             <form class="botones" action="javascript:void(0)">   
                 <input type="text" id="txtTexto" title="Palabra Secreta" placeholder="Ingrese una Palabra" minlength="3" maxlength="13" value="">             
                 <br/>
-                <span><strong class="info">i</strong>Máximo 13 letras y mínimo 3</span>                
+                <span><strong class="info">i</strong>&nbsp;Máximo 13 letras y mínimo 3</span>                
                 <br/>
                 <br/>
                 <br/>                

@@ -1,5 +1,5 @@
 ;(function(){
-'use strict'
+// 'use strict'
 
 let palabras = ['ALURA','ORACLE','JAVASCRIPT','CANVAS','TECNOLOGIA','AFINIDAD','PROGRAMAR','DESARROLLADOR'];
 const EGanado = 8;
@@ -17,8 +17,9 @@ const formato = /[^A-ZÑ]/g; // /[*A-ZÑ]/
 var juego = null;
 var finalizado = false;
 var msjFinJG = document.getElementById('msjFin');
-var tablero = document.querySelector(".tableroJuego"); //document.getElementById('tableroJuego');
-var configJuego = document.querySelector(".configJuego"); //document.getElementById('configJuego');
+var alerta = document.getElementById('alerta');
+var tablero = document.querySelector(".tableroJuego");
+var configJuego = document.querySelector(".configJuego");
 var agregarPalabra = document.querySelector(".agregarPalabra");
 
 var $html = {
@@ -37,8 +38,7 @@ function dibujar(juego){
     }
 
     $elem.src = './img/estados/0' + estado + '.png';
-    //console.log('./img/estados/0' + estado + '.png');
-    
+        
     //letras a adivinar
     var palabra = juego.palabra;
     var adivinado = juego.adivinado;
@@ -123,7 +123,7 @@ function adivinar(juego,letra){
 }
 
 function palabraAleatoria(){
-    // var indice = Math.round(Math.random() * palabras.length);
+    // var indice = Math.round(Math.random() * palabras.length); //a veces falla el random de esta forma
     var indice = ~~(Math.random() * palabras.length);
     //console.log(indice);
     return palabras[indice];
@@ -131,19 +131,21 @@ function palabraAleatoria(){
 
 function mensajes(tipo, palabra){    
     if(tipo == Perdiste){
-        alert('Fallaste, el acertijo era: ' + palabra);
+        //alert('Fallaste, el acertijo era: ' + palabra);
+        document.getElementById('lblMensaje').innerHTML = 'Fallaste, el acertijo era: ' + palabra;
     }
     else{
-        alert('Felicidades has acertado');
+        //alert('Felicidades has acertado');
+        document.getElementById('lblMensaje').innerHTML = 'Felicidades has acertado';
     }
-    msjFinJG.classList.add('mostrar');
+    msjFinJG.classList.add('mostrar');    
+    alerta.classList.add('mostrar');
 }
 
-window.nuevoJuego = function nuevoJuego(){
-    /* var ultPalabra = document.querySelector("#txtTexto");
-    ultPalabra.textContent = ""; */
+window.nuevoJuego = function nuevoJuego(){    
     finalizado = false;
     msjFinJG.classList.remove('mostrar');
+    alerta.classList.remove('mostrar');
     var aleatoria = palabraAleatoria();    
     juego = {};
     juego.palabra = aleatoria;
@@ -184,15 +186,7 @@ function regresarInicio(){
     document.getElementById("txtTexto").value = "";
 }
 
-window.rendirse = function abandonarJuego(){
-    /* if(juego.estado != EGanado && juego.estado != EPerdido){
-        juego.estado = EPerdido;    
-        finalizado = true;
-        dibujar(juego);
-        setTimeout(mensajes(1,juego.palabra), 4000);
-    } */
-    /* tablero.classList.remove('mostrar'); 
-    configJuego.classList.add('mostrar'); */       
+window.rendirse = function abandonarJuego(){          
     regresarInicio();
     console.log("salir del juego");
 }
@@ -201,15 +195,7 @@ window.agregar = function incluirPalabra(){
     tablero.classList.remove('mostrar'); 
     configJuego.classList.remove('mostrar');
     agregarPalabra.classList.add('mostrar');
-    console.log("agregar palabra");
-    /* if(valor != ""){
-        if(formato.test(valor)){
-            if(!palabras.has(valor)){
-                palabras.add(valor);
-                return;
-            }
-        }
-    } */
+    console.log("agregar palabra");    
 }
 
 window.iniciarJuego = function crearJuego(){
@@ -240,8 +226,5 @@ window.nuevaPalabra = function iniciarPalabra(data){
     //iniciar
     nuevoJuego();
 }
-
-//DEPENDE DEL EVENTO DE INICIO
-//nuevoJuego();
 
 }())

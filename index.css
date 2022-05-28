@@ -1,7 +1,6 @@
 
 html{
-    font-size: 16px;
-    /* font-family:  'Inter', sans-serif; */
+    font-size: 16px;    
     font-family:'Courier New', Courier, monospace;
 }
 
@@ -11,8 +10,8 @@ html{
 }
 
 body{
-    background: url(img/fondo.jpg) no-repeat;
-    background-blend-mode:soft-light;
+    background: url(img/fondo.jpg) no-repeat content-box;
+    background-blend-mode: soft-light;
     background-size: cover;
     /* z-index:-1; */
     opacity: 0.9;
@@ -60,18 +59,11 @@ header{
     visibility: visible;
 }
 
-/* .agregarPalabra .textarea {
-    text-align: center;
-    color: #259c35;
-} */
-
 #txtTexto{    
     text-align: center;
-    color: #259c35;
-    /* border: none; */
+    color: #259c35;    
     max-width: 100%;
     font-weight: bolder;
-
     width: 17rem;
     padding: 1rem;
     border: solid 2px #259c35;
@@ -80,29 +72,23 @@ header{
     font-family:inherit;    
 }
 
-.info{
-    /* margin-top: 1.5rem;
-    padding-left: 2rem;
-    max-width: 100%; */
-    padding-right: 1rem;
+.info{    
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
     font-size: 1.2rem; 
     color: #14a13e;
-    font-weight: bolder;
+    font-weight: bolder;    
+    border-radius: 50%;    
+    width: 200px;
+    background-color: #259c35;
+    color: #fff;    
 }
-
-/* display: inline-block; */
-    /* font-size: 1.5rem;
-    max-width: 100%;
-    word-break: break-all;
-    overflow-y: auto; */
 
 #hombre{
     max-width: 100%;
     max-height: 100%;
     width: 16.75rem;
     height: 16.75rem;
-    /* border: solid 1px #777;
-    background-image: #ddd; */
     display: inline-block;
     border: none;
 }
@@ -116,10 +102,12 @@ header{
     color: #259c35;
     font-size: 3rem; 
     font-weight: bold;
+    display: none;
     visibility: hidden;
 }
 
 .fin-juego.mostrar{
+    display: block;
     visibility: visible;
 }
 
@@ -199,9 +187,30 @@ header{
     border: solid 1px #000;
   }
 
-footer{  
-    position: absolute;
+footer{    
+    position: fixed;
     bottom: 0;
     padding: 1rem;
     color: #259c35;
+}
+
+.alert{
+    padding: 20px;
+    background-color: #259c35;
+    color: white;
+}
+  
+.closebtn{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn:hover{
+    color: black;
 }

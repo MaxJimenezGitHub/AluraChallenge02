@@ -5,10 +5,10 @@ html{
     font-family:'Courier New', Courier, monospace;
 }
 
-/* *{
+*{
     margin: 0px;
     padding: 0px;
-} */
+}
 
 body{
     background: url(img/fondo.jpg) no-repeat;
@@ -78,6 +78,16 @@ header{
     background: inherit;
     font-size: 20px;
     font-family:inherit;    
+}
+
+.info{
+    /* margin-top: 1.5rem;
+    padding-left: 2rem;
+    max-width: 100%; */
+    padding-right: 1rem;
+    font-size: 1.2rem; 
+    color: #14a13e;
+    font-weight: bolder;
 }
 
 /* display: inline-block; */

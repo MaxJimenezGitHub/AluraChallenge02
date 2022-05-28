@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <title>Challenge 2 Juego Ahorcado | Oracle Alura</title>
-        <link rel="stylesheet" href="./index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Challenge 2 Juego Ahorcado | Oracle Alura</title>
+        <link rel="stylesheet" href="./index.css">        
+        
     </head>
     <body>
         <header>            
@@ -32,24 +33,41 @@
         </div>
         <div class="agregarPalabra">            
             <form class="botones" action="javascript:void(0)">   
-                <input type="text" id="txtTexto" title="Palabra Secreta" placeholder="Ingrese una Palabra" maxlength="8">             
+                <input type="text" id="txtTexto" title="Palabra Secreta" placeholder="Ingrese una Palabra" minlength="3" maxlength="13" value="">             
                 <br/>
-                <span>Máximo 8 letras</span>                
+                <span><strong class="info">i</strong>Máximo 13 letras y mínimo 3</span>                
                 <br/>
                 <br/>
                 <br/>                
                 <br/>
-                <input type="button" class="boton" value="Guardar y Empezar Juego" onclick="nuevaPalabra()"/>
+                <input type="button" class="boton" value="Guardar y Empezar Juego" onclick="nuevaPalabra(txtTexto.value)"/>
                 <input type="button" class="boton" value="Cancelar" onclick="cancPalabra()"/>
             </form>
         </div>
         <script src="./ahorcado.js"></script>
         <script type="text/javascript">
-            //load cargar el inicio del juego
-            //var inicial = document.getElementById('configJuego');
+            //Validar que solo se permiten letras mayusculas y no caracteres ni #
+            //const patternL = /[^A-ZÑ]/g;
+            function validaLetras(evento){
+                const { target, data } = evento;
+                const pattern = /[^A-ZÑ]/g;
+                if(data) {
+                    //console.log(data);
+                    if(pattern.test(data)){
+                        let value = target.value;
+                        //value.toUpperCase();
+                        target.value = value.substring(0, value.length - 1).toUpperCase();
+                    }
+                }
+            }
+
+            //load cargar el inicio del juego            
             var inicial = document.querySelector(".configJuego");
             //console.log(inicial);
             inicial.classList.add('mostrar');
+            //leer la entrada de una palabras
+            var ingresaPalabra = document.querySelector("#txtTexto");
+            ingresaPalabra.oninput = validaLetras;
 
         </script>
     </body>

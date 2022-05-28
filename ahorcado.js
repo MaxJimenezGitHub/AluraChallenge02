@@ -1,7 +1,7 @@
 ;(function(){
 'use strict'
 
-var palabras = ['ALURA','ORACLE','JAVASCRIPT','CANVAS','TECNOLOGIA','AFINIDAD','PROGRAMAR','DESARROLLADOR'];
+let palabras = ['ALURA','ORACLE','JAVASCRIPT','CANVAS','TECNOLOGIA','AFINIDAD','PROGRAMAR','DESARROLLADOR'];
 const EGanado = 8;
 const EPerdido = 1;
 const Perdiste = 1;
@@ -68,6 +68,17 @@ function dibujar(juego){
         $span.appendChild($txt);
         $elem.appendChild($span);
     }
+
+    //pintar los mensajes segun estado
+    var miEstado = juego.estado;
+        if (miEstado == EGanado && !finalizado){                
+            mensajes(0,juego.palabra); 
+            finalizado = true;       
+        }    
+        else if(miEstado == EPerdido && !finalizado){
+            mensajes(1,juego.palabra);
+            finalizado = true;      
+        }
 }
 
 function adivinar(juego,letra){
@@ -129,6 +140,8 @@ function mensajes(tipo, palabra){
 }
 
 window.nuevoJuego = function nuevoJuego(){
+    /* var ultPalabra = document.querySelector("#txtTexto");
+    ultPalabra.textContent = ""; */
     finalizado = false;
     msjFinJG.classList.remove('mostrar');
     var aleatoria = palabraAleatoria();    
@@ -151,15 +164,15 @@ window.onkeypress = function adivinarLetra(e){
             return;
         }
         adivinar(juego, letra);
-        var miEstado = juego.estado;
+        /* var miEstado = juego.estado;
         if (miEstado == EGanado && !finalizado){                
-            setTimeout(mensajes(0,juego.palabra), 4000); 
+            setTimeout(mensajes(0,juego.palabra), 5000); 
             finalizado = true;       
         }    
         else if(miEstado == EPerdido && !finalizado){
-            setTimeout(mensajes(1,juego.palabra), 4000);
+            setTimeout(mensajes(1,juego.palabra), 5000);
             finalizado = true;      
-        }
+        } */
         dibujar(juego);
     }
 }
@@ -168,6 +181,7 @@ function regresarInicio(){
     tablero.classList.remove('mostrar'); 
     agregarPalabra.classList.remove('mostrar');
     configJuego.classList.add('mostrar');
+    document.getElementById("txtTexto").value = "";
 }
 
 window.rendirse = function abandonarJuego(){
@@ -216,8 +230,12 @@ window.nuevaPalabra = function iniciarPalabra(data){
     configJuego.classList.remove('mostrar');
     agregarPalabra.classList.remove('mostrar');
     if (data.length > 0){
-        palabras.push(data);
-        console.log("se agrega nueva palabra"); 
+        if(!palabras.includes(data)){
+            palabras.push(data);
+            console.log("se agrega nueva palabra"); 
+        }else{
+            console.log("la palabra ya esta en la lista"); 
+        }
     }    
     //iniciar
     nuevoJuego();

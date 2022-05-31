@@ -5,7 +5,7 @@ let palabras = ['ALURA','ORACLE','JAVASCRIPT','CANVAS','TECNOLOGIA','AFINIDAD','
 const EGanado = 8;
 const EPerdido = 1;
 const Perdiste = 1;
-const formato = /[^A-ZÑ]/g; // /[*A-ZÑ]/
+const formato = /[^A-ZÑ]/i; // /[^A-ZÑ]/g /[*A-ZÑ]/
 
 /* var juego = {
     palabra: 'ALURA',
@@ -21,11 +21,30 @@ var alerta = document.getElementById('alerta');
 var tablero = document.querySelector(".tableroJuego");
 var configJuego = document.querySelector(".configJuego");
 var agregarPalabra = document.querySelector(".agregarPalabra");
+const teclaMob = document.getElementById('mobTexto');
 
 var $html = {
     hombre: document.getElementById('hombre'),
     adivinado: document.querySelector('.adivinado'),
     errado: document.querySelector('.errado')
+}
+
+//para mobiles
+const myKey = (e) => {
+    //let unaLetra = teclaMob.value.toUpperCase();
+    //tiene que existir un juego iniciado
+    if(juego != null){
+        var letra = e.key;    
+        letra = letra.toUpperCase();
+         
+        if(formato.test(letra)){       
+            return;
+        }
+        adivinar(juego, letra);        
+        dibujar(juego);
+    }
+    teclaMob.value = '';
+    teclaMob.focus();  
 }
 
 function dibujar(juego){    
@@ -203,6 +222,12 @@ window.iniciarJuego = function crearJuego(){
     configJuego.classList.remove('mostrar');    
     console.log("nuevo juego");
     nuevoJuego();
+    //para mobile
+    let visibleTeclado = teclaMob.style.display;
+    if(visibleTeclado != 'none'){
+        teclaMob.focus()
+        teclaMob.addEventListener("keyup", myKey)
+    }
 }
 
 window.cancPalabra = function cancelarPalabra(){

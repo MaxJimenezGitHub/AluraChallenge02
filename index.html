@@ -22,8 +22,9 @@
                 <img id="hombre" alt="hombre-ahorcado" />
             </div>        
             <div class="adivinado"></div>
-            <div class="errado"></div>
-            <form class="botones" action="javascript:void(0)">
+            <div class="errado"></div>       
+            <input type="text" id="tlfn" inputmode="tel" name="tlfn" title="letra" />     
+            <form class="botones" action="javascript:void(0)">                
                 <input type="button" class="boton" value="Nuevo Juego" onclick="nuevoJuego()"/>
                 <input type="button" class="boton" value="Desistir" onclick="rendirse()"/>
             </form>
@@ -73,7 +74,8 @@
             //leer la entrada de una palabras
             var ingresaPalabra = document.querySelector("#txtTexto");
             ingresaPalabra.oninput = validaLetras;
-
+            var ingresaPalabra2 = document.querySelector("#tlfn");
+            ingresaPalabra2.oninput = validaLetras;
         </script>
     </body>
     <footer>

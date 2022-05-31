@@ -8,8 +8,9 @@
         
     </head>
     <body>
-        <header>            
-            <label class="logo" title="Alura Challenge 02 - Juego del Ahorcado tema Riddler DC">a</label>
+        <header>
+            <label class="logo" title="Alura Challenge 02 - Juego del Ahorcado tema Riddler DC">a</label>   
+            <label class="titulo">Juego Ahorcado</label>
         </header>
         <div class="tableroJuego">
             <div id="alerta" class="fin-juego alert">
@@ -30,20 +31,20 @@
         <div class="configJuego">            
             <form class="botones" action="javascript:void(0)">
                 <input type="button" class="boton" value="Iniciar Juego" onclick="iniciarJuego()"/>
-                <br/>
-                <br/>
+                <br>
+                <br>
                 <input type="button" class="boton" value="Agregar nueva palabra" onclick="agregar()"/>
             </form>
         </div>
         <div class="agregarPalabra">            
             <form class="botones" action="javascript:void(0)">   
                 <input type="text" id="txtTexto" title="Palabra Secreta" placeholder="Ingrese una Palabra" minlength="3" maxlength="13" value="">             
-                <br/>
+                <br>
                 <span><strong class="info">i</strong>&nbsp;Máximo 13 letras y mínimo 3</span>                
-                <br/>
-                <br/>
-                <br/>                
-                <br/>
+                <br>
+                <br>
+                <br>                
+                <br>
                 <input type="button" class="boton" value="Guardar y Empezar Juego" onclick="nuevaPalabra(txtTexto.value)"/>
                 <input type="button" class="boton" value="Cancelar" onclick="cancPalabra()"/>
             </form>

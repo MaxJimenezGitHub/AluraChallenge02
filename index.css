@@ -228,4 +228,9 @@ footer{
       background-size: auto;
       background-position: 15% 5%;
     }
+    .titulo{
+        font-size: 0.8rem; 
+        text-align: center;
+        animation: blinker 1s linear infinite;   
+    }
   }

@@ -21,12 +21,20 @@ body{
 }
 
 header{
-    margin-top: 1.5rem;
+    /* margin-top: 0.3rem; */
     padding-left: 2rem;
-    max-width: 100%;
-    font-size: 9rem; 
+    max-width: 100%;    
     color: #14a13e;
     font-weight: bolder;
+}
+
+.logo{
+    font-size: 6rem; 
+}
+
+.titulo{
+    text-align: center;
+    animation: blinker 1s linear infinite;   
 }
 
 .tableroJuego{

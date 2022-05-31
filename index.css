@@ -47,7 +47,7 @@ header{
     visibility: visible;
 }
 
-.tableroJuego.mostrar #tlfn{
+.tableroJuego.mostrar #mobTexto{
     display: none;
     visibility: hidden;
 }
@@ -177,7 +177,7 @@ header{
 }
 
 [type="button"]{
-    width: 17rem;
+    width: 16rem;
     padding: 1rem;
     border-radius: 1rem;
     border: solid 1px #2d4932;
@@ -186,11 +186,12 @@ header{
     background: inherit;
     font-size: 17px;
     font-family:inherit;
+    transition: 1s all;
 }
 
 .botones{
     text-align: center;
-    margin-top: 3.5rem;
+    margin-top: 2.5rem;    
 }
   
 /* .boton:hover,.boton:focus { */
@@ -198,12 +199,14 @@ header{
     background-color: #259c35;
     color: #fff;
     border: solid 1px #000;
+    transform: scale(1.1);
   }
 
 footer{    
     position: fixed;
     bottom: 0;
-    padding: 1rem;
+    padding-left: 2rem;
+    padding: 1.2rem;
     color: #259c35;
 }
 
@@ -242,10 +245,20 @@ footer{
         display: block; 
         visibility: visible;
     }
-    #tlfn{
-        display: inline;
+    .adivinada{
+        line-height: 2.5rem;
+    }
+    [type="button"]{
+        width: 12rem;
+        margin-top: 1rem;
+        font-size: 12px;
+    }
+    .botones{
+        margin-top: 1.2rem;
+    }
+    #mobTexto{             
         padding: 0.2rem;
-        margin-left: 1rem;
+        margin-left: 6rem;
         text-align: center;
         color: #259c35;  
         max-width: 100%;        
@@ -256,10 +269,23 @@ footer{
         font-size: 20px;
         font-family:inherit;
     }
+    .tableroJuego.mostrar #mobTexto{
+        display: block;   
+        visibility: visible;
+    }    
     .fin-juego{        
         font-size: 1rem;         
     }
     .alert{
         padding: 10px;
+    }
+    footer{
+        display: none;
+        visibility: hidden;
+        /* font-size: 0.8rem;
+        padding: 0.7rem; 
+        margin-left: 1rem;
+        margin-top: 1rem;
+        font-weight: lighter;           */
     }
   }

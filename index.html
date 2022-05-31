@@ -23,7 +23,7 @@
             </div>        
             <div class="adivinado"></div>
             <div class="errado"></div>       
-            <input type="text" id="tlfn" inputmode="text" name="tlfn" title="letra" value="">     
+            <input type="text" id="mobTexto" name="mobTexto" title="letra" maxlength="1">     <!-- inputmode="text" -->
             <form class="botones" action="javascript:void(0)">
                 <input type="button" class="boton" value="Nuevo Juego" onclick="nuevoJuego()"/>
                 <input type="button" class="boton" value="Desistir" onclick="rendirse()"/>
@@ -56,10 +56,10 @@
             //const patternL = /[^A-ZÑ]/g;
             function validaLetras(evento){
                 const { target, data } = evento;
-                const pattern = /[^A-ZÑ]/g;
-                if(data) {
-                    //console.log(data);
+                const pattern = /[^A-ZÑ]/i; ///[^A-ZÑ]/g;
+                if(data) {                    
                     if(pattern.test(data)){
+                        //console.log(target.value);
                         let value = target.value;
                         //value.toUpperCase();
                         target.value = value.substring(0, value.length - 1).toUpperCase();
@@ -74,11 +74,11 @@
             //leer la entrada de una palabras
             var ingresaPalabra = document.querySelector("#txtTexto");
             ingresaPalabra.oninput = validaLetras;
-            var ingresaPalabra2 = document.querySelector("#tlfn");
+            var ingresaPalabra2 = document.querySelector("#mobTexto");
             ingresaPalabra2.oninput = validaLetras;
         </script>
-    </body>
+    </body>    
     <footer>
-        <p>Author: MJ<br>
+        <p>#dev Max Jiménez<br>
     </footer>
 </html>

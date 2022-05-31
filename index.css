@@ -214,3 +214,10 @@ footer{
 .closebtn:hover{
     color: black;
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+      /* background-color: lightblue; */
+      background-size: contain;
+    }
+  }

@@ -50,8 +50,8 @@ var $html = {
 window.addEventListener('keypress', validarLetra);
 
 function validarLetra(e) {
-    const letraInput = e.key;
-    const letra = letraInput.toUpperCase();
+    let letraInput = e.key;
+    let letra = letraInput.toUpperCase();
     if(juego != null){                 
         if(formato.test(letra)){       
             return;
@@ -114,8 +114,9 @@ function dibujar(juego){
         }
 }
 
-function adivinar(juego,letra){
+function adivinar(juego, letra){
     //console.log(letra);
+    alert(letra);
     var estado = juego.estado;
     //si perdio o gano
     if(estado == EPerdido || estado == EGanado){

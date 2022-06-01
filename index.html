@@ -4,8 +4,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Challenge 2 Juego Ahorcado | Oracle Alura</title>
-        <link rel="stylesheet" href="./index.css">        
-        
+        <link rel="stylesheet" href="./index.css">
     </head>
     <body>
         <header>
@@ -56,13 +55,13 @@
             //const patternL = /[^A-ZÑ]/g;
             function validaLetras(evento){
                 const { target, data } = evento;
-                const pattern = /[^A-ZÑ]/i; ///[^A-ZÑ]/g;
+                const pattern = /[^A-ZÑ]/g; ///[^A-ZÑ]/g;
                 if(data) {                    
                     if(pattern.test(data)){
                         //console.log(target.value);
-                        let value = target.value;
+                        let valor = (target.value).toUpperCase();
                         //value.toUpperCase();
-                        target.value = value.substring(0, value.length - 1).toUpperCase();
+                        target.value = valor.substring(0, valor.length - 1);
                     }
                 }
             }

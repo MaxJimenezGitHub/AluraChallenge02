@@ -30,8 +30,7 @@ var $html = {
 }
 
 //para mobiles
-const myKey = (e) => {
-    //let unaLetra = teclaMob.value.toUpperCase();
+/* const myKey = (e) => {    
     //tiene que existir un juego iniciado
     if(juego != null){
         var letra = e.key;    
@@ -45,6 +44,21 @@ const myKey = (e) => {
     }
     teclaMob.value = '';
     teclaMob.focus();  
+} */
+
+//para mobiles y entrada de teclado
+window.addEventListener('keypress', validarLetra);
+
+function validarLetra(e) {
+    const letraInput = e.key;
+    const letra = letraInput.toUpperCase();
+    if(juego != null){                 
+        if(formato.test(letra)){       
+            return;
+        }
+        adivinar(juego, letra);        
+        dibujar(juego);
+    }    
 }
 
 function dibujar(juego){    
@@ -175,7 +189,7 @@ window.nuevoJuego = function nuevoJuego(){
     dibujar(juego);
 }
 
-window.onkeypress = function adivinarLetra(e){    
+/* window.onkeypress = function adivinarLetra(e){    
     //tiene que existir un juego iniciado
     if(juego != null){
         var letra = e.key;    
@@ -184,19 +198,10 @@ window.onkeypress = function adivinarLetra(e){
         if(formato.test(letra)){       
             return;
         }
-        adivinar(juego, letra);
-        /* var miEstado = juego.estado;
-        if (miEstado == EGanado && !finalizado){                
-            setTimeout(mensajes(0,juego.palabra), 5000); 
-            finalizado = true;       
-        }    
-        else if(miEstado == EPerdido && !finalizado){
-            setTimeout(mensajes(1,juego.palabra), 5000);
-            finalizado = true;      
-        } */
+        adivinar(juego, letra);        
         dibujar(juego);
     }
-}
+} */
 
 function regresarInicio(){
     tablero.classList.remove('mostrar'); 
@@ -225,8 +230,8 @@ window.iniciarJuego = function crearJuego(){
     //para mobile
     let visibleTeclado = teclaMob.style.display;
     if(visibleTeclado != 'none'){
-        teclaMob.focus()
-        teclaMob.addEventListener("keyup", myKey)
+        teclaMob.focus();
+        //teclaMob.addEventListener("keyup", myKey);
     }
 }
 

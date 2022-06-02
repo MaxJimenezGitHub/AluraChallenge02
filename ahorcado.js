@@ -51,19 +51,19 @@ document.addEventListener('keydown', validarLetra);
 
 function validarLetra(e) {
     //let letraInput = e.key;
-    let unaLetra = e.key.toUpperCase();
-    if(juego != null){                 
-        if(formato.test(unaLetra)){       
-            return;
+    let unaLetra = e.key.toUpperCase();    
+        if(juego != null){                 
+            if(formato.test(unaLetra)){       
+                return;
+            }
+            adivinar(juego, unaLetra);        
+            dibujar(juego);
         }
-        adivinar(juego, unaLetra);        
-        dibujar(juego);
-    }
-    let visibleTeclado = teclaMob.style.display;
-    if(visibleTeclado != 'none'){
-        teclaMob.value = '';
-        teclaMob.focus(); 
-    }
+        let visibleTeclado = teclaMob.style.display;
+        if(visibleTeclado != 'none'){
+            teclaMob.value = '';
+            teclaMob.focus(); 
+        }    
 }
 
 function dibujar(juego){    
@@ -121,7 +121,7 @@ function dibujar(juego){
 
 function adivinar(juego, letra){
     //console.log(letra);
-    alert(letra);
+    //alert(letra);
     var estado = juego.estado;
     //si perdio o gano
     if(estado == EPerdido || estado == EGanado){

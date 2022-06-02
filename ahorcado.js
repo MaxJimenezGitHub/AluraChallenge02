@@ -50,13 +50,13 @@ var $html = {
 document.addEventListener('keydown', validarLetra);
 
 function validarLetra(e) {
-    let letraInput = e.key;
-    let letra = letraInput.toUpperCase();
+    //let letraInput = e.key;
+    let unaLetra = e.key.toUpperCase();
     if(juego != null){                 
-        if(formato.test(letra)){       
+        if(formato.test(unaLetra)){       
             return;
         }
-        adivinar(juego, letra);        
+        adivinar(juego, unaLetra);        
         dibujar(juego);
     }
     let visibleTeclado = teclaMob.style.display;

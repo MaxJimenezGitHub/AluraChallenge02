@@ -47,7 +47,7 @@ var $html = {
 } */
 
 //para mobiles y entrada de teclado
-window.addEventListener('keypress', validarLetra);
+document.addEventListener('keypress', validarLetra);
 
 function validarLetra(e) {
     let letraInput = e.key;

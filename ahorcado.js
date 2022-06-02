@@ -58,7 +58,12 @@ function validarLetra(e) {
         }
         adivinar(juego, letra);        
         dibujar(juego);
-    }    
+    }
+    let visibleTeclado = teclaMob.style.display;
+    if(visibleTeclado != 'none'){
+        teclaMob.value = '';
+        teclaMob.focus(); 
+    }
 }
 
 function dibujar(juego){    
